@@ -1,3 +1,3 @@
-# mtd_parser
+to run:  
 
-Python parser to read Metrics Driven Transformation and generate custom metrics.
+  . venv/bin/activate && python3 prometheus.py
