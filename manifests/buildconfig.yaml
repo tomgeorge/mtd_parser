@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: List
+items:
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: 'mdt-exporter'
+- apiVersion: build.openshift.io/v1
+  kind: BuildConfig
+  metadata:
+    labels:
+      app: mdt-exporter
+    name: mdt-exporter-build
+  spec:
+    nodeSelector: null
+    output:
+      to:
+        kind: ImageStreamTag
+        name: "mdt-exporter:latest"
+    postCommit: {}
+    resources: {}
+    runPolicy: Serial
+    source:
+      git:
+        ref: master
+        uri: "ssh://git@gitlab.consulting.redhat.com:2222/lufimtse/mtd_parser.git"
+      type: Git
+      sourceSecret:
+        name: mdt-git-secret
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: "python:3.6"
+          namespace: openshift
+      type: Source
+    triggers:
+      - imageChange:
+        type: ImageChange
+      - type: ConfigChange
+      - generic:
+          secret: 40a57b970d7b1c7d
+        type: Generic
+      - github:
+          secret: 71e933aebf88a66c
+        type: GitHub
