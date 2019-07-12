@@ -1,11 +1,18 @@
+# Starts a simple wsgi server on specified port.
+# Prometheus metrics avilable on:
 # http://localhost:8080/metrics
 
+# 'app.py' name used because s2i APP_FILE defaults to this value.
+# https://docs.openshift.com/container-platform/3.11/using_images/s2i_images/python.html
+
+
+PORT = 8080  # todo_someday - read this from an environment var w/ a default.
+
+import prometheus_querier
 from prometheus_client import make_wsgi_app
 from wsgiref.simple_server import make_server
 
 metrics_app = make_wsgi_app()
-
-import prometheus_querier
 
 # Currently shows average minutes. But units not hard-coded, can change to seconds etc..
 def get_downtime_average():
@@ -28,8 +35,8 @@ def my_app(environ, start_fn):
     start_fn('200 OK', [])
     return [b'Metrics are hosted at /metrics']
     # return ["how are you"]
+
 if __name__ == '__main__':
-    PORT = 8080
     print("Starting server on port ", PORT)
     httpd = make_server('', PORT, my_app)
     httpd.serve_forever()
