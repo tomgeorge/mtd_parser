@@ -9,7 +9,7 @@ def query_prometheus():
     # Query for prometheus.
     # query = 'up' # for testing connectivity.
     # query = "kube_pod_container_status_running{container='rest-service'}[2h]"
-    query = "kube_pod_container_status_ready{container='rest-service'}[24h]"
+    query = "kube_pod_container_status_ready{container='rest-service'}[68h]"
 
     # To get bearer token:
     # Openshift-monitoring -> secrets -> prometheus-k8s-token-7qcrv (postfix might vary) -> token
