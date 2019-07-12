@@ -14,4 +14,10 @@ To run HTTP server that servers metric mtd_myapp_mean_time_to_recover (guague) o
 
     python3 mtd_exporter.py 
 
-.
+To deploy on openshift:
+
+    oc new-app python:3.6~https://github.com/LeoUfimtsev/mtd_parser
+    oc start-build mtdparser --follow --wait --loglevel=4
+    oc get logs
+
+    # You might have to externalize the route manually. (or 'oc expose svc ....)
