@@ -147,7 +147,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.mtd_exporter">
+  <component name="RunManager" selected="Python.prometheus_querier">
     <configuration name="adapters" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="python3" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -253,8 +253,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.mtd_exporter" />
         <item itemvalue="Python.prometheus_querier" />
+        <item itemvalue="Python.mtd_exporter" />
         <item itemvalue="Python.prometheus" />
         <item itemvalue="Python.adapters" />
       </list>
@@ -334,7 +334,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python3$prometheus.coverage" NAME="prometheus Coverage Results" MODIFIED="1562788779373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/mtd_parser$prometheus_querier.coverage" NAME="prometheus_querier Coverage Results" MODIFIED="1562871687277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mtd_parser$prometheus_querier.coverage" NAME="prometheus_querier Coverage Results" MODIFIED="1562944610947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/python3$adapters.coverage" NAME="adapters Coverage Results" MODIFIED="1562775673235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/lib/python3.7/site-packages/requests" />
     <SUITE FILE_PATH="coverage/mtd_parser$mtd_exporter.coverage" NAME="mtd_exporter Coverage Results" MODIFIED="1562873386237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

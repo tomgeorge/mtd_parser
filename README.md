@@ -13,3 +13,5 @@ To run a single query:
 To run HTTP server that servers metric mtd_myapp_mean_time_to_recover (guague) on http://localhost:8080/metrics:
 
     python3 mtd_exporter.py 
+
+.
