@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30a87b3c-9a64-4766-95b2-901984943c82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prometheus_querier.py" beforeDir="false" afterPath="$PROJECT_DIR$/prometheus_querier.py" afterDir="false" />
-    </list>
+    <list default="true" id="30a87b3c-9a64-4766-95b2-901984943c82" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +29,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/prometheus_querier.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="193">
-                  <caret line="71" column="35" lean-forward="true" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="35" />
+                <state relative-caret-position="223">
+                  <caret line="92" column="23" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
                   <folding>
                     <element signature="e#24#39#0" expanded="true" />
                   </folding>
@@ -48,7 +45,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
+                <state relative-caret-position="194">
                   <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
                   <folding>
                     <element signature="e#195#220#0" expanded="true" />
@@ -93,10 +90,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="1057" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -272,7 +269,7 @@
       <workItem from="1562729272610" duration="912000" />
       <workItem from="1562773682883" duration="9050000" />
       <workItem from="1562871277200" duration="96000" />
-      <workItem from="1562871395320" duration="3996000" />
+      <workItem from="1562871395320" duration="4525000" />
     </task>
     <task id="LOCAL-00001" summary="Adding python3 project.">
       <created>1562697764467</created>
@@ -299,7 +296,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16277000" />
+    <option name="totallyTimeSpent" value="16806000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -311,14 +308,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1057" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.15761448" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.21173105" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8542616" visible="true" weight="0.36787564" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8542616" visible="true" weight="0.4522293" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27150258" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -334,7 +331,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32986337" />
       <window_info anchor="right" id="Database" order="4" weight="0.32986337" />
-      <window_info anchor="right" id="Structure" order="5" sideWeight="0.50119907" visible="true" weight="0.15814696" />
+      <window_info anchor="right" id="Structure" order="5" sideWeight="0.50119907" visible="true" weight="0.21244635" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,22 +450,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prometheus_querier.py">
+    <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="71" column="35" lean-forward="true" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="35" />
+        <state relative-caret-position="194">
+          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding>
-            <element signature="e#24#39#0" expanded="true" />
+            <element signature="e#195#220#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
+    <entry file="file://$PROJECT_DIR$/prometheus_querier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        <state relative-caret-position="223">
+          <caret line="92" column="23" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
           <folding>
-            <element signature="e#195#220#0" expanded="true" />
+            <element signature="e#24#39#0" expanded="true" />
           </folding>
         </state>
       </provider>

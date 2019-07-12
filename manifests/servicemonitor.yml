@@ -1,0 +1,25 @@
+---
+# Currently not working. Openshift cluster operator doesn't notice it when it get's created.
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: mtdparser-servicemonitor
+  # Change this to the namespace the Prometheus instance is running in
+  namespace: openshift-monitoring
+  labels:
+    k8s-app: mtdparser
+spec:
+  selector:
+    matchLabels:
+      k8s-app: mtdparser
+  endpoints:
+  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    honorLabels: true
+    interval: 15s
+    port: metrics  # edited from 8080-tcp
+    scheme: http
+    scrapeTimeout: 2m
+    tlsConfig:
+      caFile: /etc/prometheus/configmaps/serving-certs-ca-bundle/service-ca.crt
+      serverName: mtdparser.openshift-monitoring.svc
+  jobLabel: mtdparser
