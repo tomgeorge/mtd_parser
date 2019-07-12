@@ -9,7 +9,7 @@ def query_prometheus():
     # Query for prometheus.
     # query = 'up' # for testing connectivity.
     # query = "kube_pod_container_status_running{container='rest-service'}[2h]"
-    query = "kube_pod_container_status_ready{container='rest-service'}[68h]"
+    query = "kube_pod_container_status_ready{container='rest-service'}[80h]"
 
     # To get bearer token:
     # Openshift-monitoring -> secrets -> prometheus-k8s-token-7qcrv (postfix might vary) -> token
@@ -69,9 +69,12 @@ if __name__ == "__main__":
     print("Example execution of query for local development/testing:")
     results = query_prometheus()
     down_time_seconds = get_downtime_average_seconds(results)
-    average_seconds = sum(down_time_seconds) / len(down_time_seconds)
-    print("Total Downtime count: ", len(down_time_seconds))
-    print("Average duration Seconds:", average_seconds, "     (or in minutes: ", average_seconds/60,")")
+    if len(down_time_seconds) <= 1:
+        print("No down time found")
+    else:
+        average_seconds = sum(down_time_seconds) / len(down_time_seconds)
+        print("Total Downtime count: ", len(down_time_seconds))
+        print("Average duration Seconds:", average_seconds, "     (or in minutes: ", average_seconds/60,")")
 
 # Sample 1:
 # 1562778548 # 2019-07-10 13:09:08  pod_started

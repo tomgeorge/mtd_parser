@@ -18,10 +18,13 @@ metrics_app = make_wsgi_app()
 def get_downtime_average():
     results = prometheus_querier.query_prometheus()
     down_time_seconds = prometheus_querier.get_downtime_average_seconds(results)
-    average_seconds = sum(down_time_seconds) / len(down_time_seconds)
-    average_minutes = average_seconds / 60
-    print("Count: ", len(down_time_seconds), "Avg length: (minutes)", average_minutes)
-    return average_minutes
+    if len(down_time_seconds) <= 1:
+        return 0
+    else:
+        average_seconds = sum(down_time_seconds) / len(down_time_seconds)
+        average_minutes = average_seconds / 60
+        print("Count: ", len(down_time_seconds), "Avg length: (minutes)", average_minutes)
+        return average_minutes
 
 from prometheus_client import Gauge
 IN_PROGRESS = Gauge("mtd_myapp_mean_time_to_recover", "Average time for app to recover")
