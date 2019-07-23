@@ -42,7 +42,7 @@ def query_prometheus():
     except Exception as err:
         print(f'Other error occured: {err}')
 
-    print('response is ' + response) 
+    print('response status is ' + response.status_code) 
     print('response json is ' + response.json()) 
     results = response.json()['data']['result']
     return results
