@@ -33,7 +33,7 @@ def query_prometheus():
     url = 'https://' + host + ':' + port + '/api/v1/query'
     #url = 'https://prometheus-k8s-openshift-monitoring.apps.toronto-5773.openshiftworkshop.com/api/v1/query'
 
-    header = {'Authorization': bearer_token}
+    header = {'Authorization': 'Bearer ' + bearer_token}
     try:
         response = requests.post(url, headers=header, verify=cert_file, data={'query': query})
         response.raise_for_status()
