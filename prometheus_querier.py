@@ -39,7 +39,7 @@ def query_prometheus():
         response.raise_for_status()
     except HTTPError as http_err:
         print(f'HTTP error occured: {http_err}')
-    except Exception ass err:
+    except Exception as err:
         print(f'Other error occured: {err}')
 
     print('response is ' + response) 
