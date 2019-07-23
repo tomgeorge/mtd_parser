@@ -1,6 +1,7 @@
 # pip3 install requests
 import requests
 from pathlib import Path
+from requests.exceptions import HTTPError
 import datetime
 import os
 
@@ -33,7 +34,14 @@ def query_prometheus():
     #url = 'https://prometheus-k8s-openshift-monitoring.apps.toronto-5773.openshiftworkshop.com/api/v1/query'
 
     header = {'Authorization': bearer_token}
-    response = requests.post(url, headers=header, verify=cert_file, data={'query': query})
+    try:
+        response = requests.post(url, headers=header, verify=cert_file, data={'query': query})
+        response.raise_for_status()
+    except HTTPError as http_err:
+        print(f'HTTP error occured: {http_err}')
+    except Exception ass err:
+        print(f'Other error occured: {err}')
+
     print('response is ' + response) 
     print('response json is ' + response.json()) 
     results = response.json()['data']['result']
