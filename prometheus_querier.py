@@ -34,6 +34,7 @@ def query_prometheus():
 
     header = {'Authorization': bearer_token}
     response = requests.post(url, headers=header, verify=cert_file, data={'query': query})
+    print('response is ' + response.json()) 
     results = response.json()['data']['result']
     return results
 
