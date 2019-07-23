@@ -26,7 +26,15 @@ spec:
     spec:
       containers:
         - image: >-
-            docker-registry.default.svc:5000/dev/mdt-exporter:latest
+            docker-registry.default.svc:5000/openshift-monitoring/mdt-exporter:latest
+          env:
+          - name: SERVICE_ACCOUNT_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: prometheus-k8s-token-2ljbt
+                key: token
+          - name: PROMETHEUS_SVC_URL
+            value: prometheus-k8s.openshift-monitoring.svc
           imagePullPolicy: Always
           name: exporter
           ports:
@@ -35,6 +43,7 @@ spec:
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler

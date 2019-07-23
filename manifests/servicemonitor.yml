@@ -11,15 +11,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      k8s-app: mtdparser
+      k8s-app: mtd-exporter
   endpoints:
   - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
     honorLabels: true
-    interval: 15s
+    interval: 30s
     port: metrics  # edited from 8080-tcp
     scheme: http
-    scrapeTimeout: 2m
     tlsConfig:
-      caFile: /etc/prometheus/configmaps/serving-certs-ca-bundle/service-ca.crt
-      serverName: mtdparser.openshift-monitoring.svc
+      caFile: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
+      serverName: mdt-exporter-svc.openshift-monitoring.svc
   jobLabel: mtdparser
