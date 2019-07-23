@@ -35,6 +35,8 @@ spec:
                 key: token
           - name: PROMETHEUS_SVC_URL
             value: prometheus-k8s.openshift-monitoring.svc
+          - name: PROMETHEUS_SVC_PORT
+            value: '9091'
           imagePullPolicy: Always
           name: exporter
           ports:
@@ -43,7 +45,6 @@ spec:
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
-
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
