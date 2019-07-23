@@ -27,8 +27,9 @@ def query_prometheus():
 
 
     # Openshift-monitoring -> Stateful Sets -> Prometheus > copy external link + /api/v1/query
-    url = os.environ['PROMETHEUS_SVC_URL']
+    host = os.environ['PROMETHEUS_SVC_URL']
     port = os.environ['PROMETHEUS_SVC_PORT']
+    url = 'http://' + host + ':' + port
     #url = 'https://prometheus-k8s-openshift-monitoring.apps.toronto-5773.openshiftworkshop.com/api/v1/query'
 
     header = {'Authorization': bearer_token}

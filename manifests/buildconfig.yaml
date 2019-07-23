@@ -23,7 +23,7 @@ items:
     source:
       git:
         ref: master
-        uri: "ssh://git@gitlab.consulting.redhat.com:2222/lufimtse/mtd_parser.git"
+        uri: "git@github.com:tomgeorge/mtd_parser.git"
       type: Git
       sourceSecret:
         name: mdt-git-secret
