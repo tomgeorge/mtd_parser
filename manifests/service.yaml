@@ -2,10 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mdt-exporter-svc
+  labels:
+    k8s-app: mdt-exporter
 spec:
   ports:
-  - port: 8080
+  - name: mdt-metrics
+    port: 8080
     targetPort: 8080
     protocol: TCP
   selector:
-    app: mdt-exporter
+    k8s-app: mdt-exporter

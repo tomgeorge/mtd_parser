@@ -2,7 +2,7 @@ apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
   labels:
-    app: mdt-exporter
+    k8s-app: mdt-exporter
   name: mdt-exporter
 spec:
   replicas: 1
@@ -21,7 +21,7 @@ spec:
   template:
     metadata:
       labels:
-        app: mdt-exporter
+        k8s-app: mdt-exporter
         deploymentconfig: mdt-exporter
     spec:
       containers:

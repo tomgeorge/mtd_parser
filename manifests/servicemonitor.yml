@@ -3,22 +3,19 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: mtdparser-servicemonitor
+  name: mdt-exporter
   # Change this to the namespace the Prometheus instance is running in
   namespace: openshift-monitoring
   labels:
-    k8s-app: mtdparser
+    k8s-app: mdt-exporter
 spec:
   selector:
     matchLabels:
-      k8s-app: mtd-exporter
+      k8s-app: mdt-exporter
   endpoints:
   - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
     honorLabels: true
     interval: 30s
-    port: metrics  # edited from 8080-tcp
+    port: mdt-metrics
     scheme: http
-    tlsConfig:
-      caFile: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
-      serverName: mdt-exporter-svc.openshift-monitoring.svc
   jobLabel: mtdparser
