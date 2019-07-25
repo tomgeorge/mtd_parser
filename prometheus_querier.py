@@ -13,26 +13,12 @@ def query_prometheus():
     # query = "kube_pod_container_status_running{container='rest-service'}[2h]"
     query = "kube_pod_container_status_ready{container='rest-service'}[80h]"
 
-    # To get bearer token:
-    # Openshift-monitoring -> secrets -> prometheus-k8s-token-7qcrv (postfix might vary) -> token
-    #bearer_token = 'Bearer ' + "eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJvcGVuc2hpZnQtbW9uaXRvcmluZyIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJwcm9tZXRoZXVzLWs4cy10b2tlbi03cWNydiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJwcm9tZXRoZXVzLWs4cyIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6Ijc0MGQxZGViLWExOTQtMTFlOS05M2Y5LTBhYzFjMjdlMDI3NiIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpvcGVuc2hpZnQtbW9uaXRvcmluZzpwcm9tZXRoZXVzLWs4cyJ9.pzq9bRb0Q8GGwaAo7TVv2PKLDuzPd-KIYNkRvN_z75rYghfBsbqM_PkXM3ckRO7_hBWmFCTpRRHVkvldujXUlsxfn9KJz--_5k_8qSMy4h7aNAAaWeLMGdlJ7Zwsz0ecdg51TFuT9c32_t6dLiHFoWQaXDtRJWDVYwCtjqe7tUXMqu6jcnEprxWUXXilA-iy-5KNPKchBfWkNeFPfLkiKdtR1sEFLMvAVoxQDgYcyzeiiQVLb8RdHF5dutowKYFZl-BBWQzvueuNRgVSbVBqD0xTTwdSqKoMNrwpToKiSULf1FEHULHz0jiCE6RvYadrLHNdsoXhpB552kIDLAUNpQ"
     bearer_token = os.environ['SERVICE_ACCOUNT_TOKEN']
-
-    # To get Cert file:
-    # Openshift-monitoring -> Secrets -> prometheus-k8s-tls.
-    # Copy 'tls.crt' into ~/.ssh/service.ca.crt -> chmod 600 service.ca.crt
-    # cert_file = str(Path.home()) + "/.ssh/service.ca.crt"
     cert_file = '/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt'
 
-    # To find URL:
-
-
-    # Openshift-monitoring -> Stateful Sets -> Prometheus > copy external link + /api/v1/query
     host = os.environ['PROMETHEUS_SVC_URL']
     port = os.environ['PROMETHEUS_SVC_PORT']
     url = 'https://' + host + ':' + port + '/api/v1/query'
-    #url = 'https://prometheus-k8s-openshift-monitoring.apps.toronto-5773.openshiftworkshop.com/api/v1/query'
-
     header = {'Authorization': 'Bearer ' + bearer_token}
     try:
         response = requests.post(url, headers=header, verify=cert_file, data={'query': query})
@@ -41,9 +27,6 @@ def query_prometheus():
         print(f'HTTP error occured: {http_err}')
     except Exception as err:
         print(f'Other error occured: {err}')
-
-    print(f'response status is {response.status_code}') 
-    print(f'response json is {response.json()}') 
     results = response.json()['data']['result']
     return results
 
