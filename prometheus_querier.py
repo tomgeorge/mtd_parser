@@ -30,7 +30,7 @@ def query_prometheus():
         print(f'HTTP error occured: {http_err}')
     except Exception as err:
         print(f'Other error occured: {err}')
-    pp.print(response.json())
+    pp.pprint(response.json())
     results = response.json()['data']['result']
     return results
 
