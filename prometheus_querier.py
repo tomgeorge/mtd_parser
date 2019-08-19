@@ -14,6 +14,7 @@ def query_prometheus():
     # query = "kube_pod_container_status_running{container='rest-service'}[2h]"
     # query = "kube_pod_container_status_ready{container='rest-service'}[80h]"
     query = "kube_pod_container_status_ready * on (pod, namespace) group_left (label_app) label_replace(kube_pod_labels{label_app!=\"\"},\"pod_name\",\"$1\",\"pod\",\"(.*)\")"
+    pp = pprint.PrettyPrinter(indent=4)
 
     bearer_token = os.environ['SERVICE_ACCOUNT_TOKEN']
     cert_file = '/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt'
