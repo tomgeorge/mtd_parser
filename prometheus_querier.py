@@ -29,7 +29,7 @@ def query_prometheus():
     except Exception as err:
         print(f'Other error occured: {err}')
     results = response.json()['data']['result']
-    printf(f'Response json is {response.json()})
+    printf(f'Response json is {response.json()}')
     return results
 
 
