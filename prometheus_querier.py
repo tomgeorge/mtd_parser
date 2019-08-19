@@ -4,6 +4,7 @@ from pathlib import Path
 from requests.exceptions import HTTPError
 import datetime
 import os
+import pprint
 
 import heapq
 
@@ -28,7 +29,7 @@ def query_prometheus():
         print(f'HTTP error occured: {http_err}')
     except Exception as err:
         print(f'Other error occured: {err}')
-    print(f'Response is {response.json()}')
+    pp.print(response.json())
     results = response.json()['data']['result']
     return results
 
